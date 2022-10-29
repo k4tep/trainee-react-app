@@ -1,0 +1,82 @@
+._container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background-color: rgba(13, 13, 13, 0.7);
+}
+
+.closed {
+    display: none;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+    font-size: 20px;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkolivegreen;
+    border-radius: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+    font-size: 20px;
+    padding: 15px;
+    background-color: rgb(149, 209, 136);
+}
+
+.select {
+    border: 2px solid darkolivegreen;
+    border-radius: 20px;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+    font-size: 20px;
+    background-color: rgb(149, 209, 136);
+    box-shadow: 0 0 5px 2px darkolivegreen;
+    margin: 5px;
+    padding: 5px;
+}
+
+.div {
+    display: flex;
+    border: 2px solid darkolivegreen;
+    justify-content: space-around;
+    box-shadow: 0 0 5px 2px darkolivegreen;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.input {
+    margin: 5px;
+}
+
+.img {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.h1 {
+    margin-bottom: 5px;
+}
+
+hr {
+    margin: 5px 0;
+    background-color: darkolivegreen;
+    border: 2px solid darkolivegreen;
+}
+
+.a {
+    margin-top: 5px;
+}

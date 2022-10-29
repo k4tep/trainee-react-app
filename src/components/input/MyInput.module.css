@@ -1,0 +1,13 @@
+.input {
+    border: 2px solid darkolivegreen;
+    border-radius: 20px;
+    caret-color: darkolivegreen;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+    font-size: 20px;
+    background-color: rgb(149, 209, 136);
+    box-shadow: 0 0 5px 2px darkolivegreen;
+    margin: 5px;
+    padding: 5px;
+}

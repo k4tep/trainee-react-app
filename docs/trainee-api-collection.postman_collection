@@ -1,0 +1,945 @@
+{
+	"info": {
+		"_postman_id": "220c880d-cc5c-49f8-a28e-954423c59df4",
+		"name": "Trainee api collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20902149"
+	},
+	"item": [
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/characters",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "r",
+									"disabled": true
+								},
+								{
+									"key": "sortMode",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "sortField",
+									"value": "height",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{docker}}/characters",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "50",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "r",
+											"disabled": true
+										},
+										{
+											"key": "sortMode",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "height",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2143"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85f-baS4I6bhkTNyn69cdhj1Ccfzm3Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:26:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": 933,\n            \"height\": 230,\n            \"race\": \"Human\",\n            \"spouse\": \"\",\n            \"gender\": \"Male\",\n            \"birth\": \"Late ,Third Age\",\n            \"death\": \"\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"Ceorl\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\",\n            \"image\": {\n                \"link\": \"http://192.168.31.68:3010/api/media/images/cd3ab1bc-67bc-4fd8-b10c-bdb895361491.jpg\",\n                \"filename\": \"cd3ab1bc-67bc-4fd8-b10c-bdb895361491.jpg\",\n                \"userId\": 1,\n                \"mediaType\": \"images\",\n                \"createdAt\": \"2022-10-27T08:26:11.985Z\",\n                \"updatedAt\": \"2022-10-27T08:26:11.985Z\"\n            }\n        },\n        {\n            \"_id\": 932,\n            \"height\": 230,\n            \"race\": \"\",\n            \"spouse\": \"\",\n            \"gender\": \"\",\n            \"birth\": \"\",\n            \"death\": \"\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"MINOR_CHARACTER\",\n            \"wikiUrl\": \"\",\n            \"image\": null\n        },\n        {\n            \"_id\": 931,\n            \"height\": 230,\n            \"race\": \"Elf\",\n            \"spouse\": \"\",\n            \"gender\": \"Male\",\n            \"birth\": \"\",\n            \"death\": \"\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"MINOR_CHARACTER\",\n            \"wikiUrl\": \"\",\n            \"image\": null\n        },\n        {\n            \"_id\": 930,\n            \"height\": 230,\n            \"race\": \"Elf\",\n            \"spouse\": \"\",\n            \"gender\": \"Male\",\n            \"birth\": \"\",\n            \"death\": \"\",\n            \"realm\": \"Rivendell\",\n            \"hair\": \"\",\n            \"name\": \"Figwit\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Figwit\",\n            \"image\": null\n        },\n        {\n            \"_id\": 929,\n            \"height\": 230,\n            \"race\": \"Human\",\n            \"spouse\": \"\",\n            \"gender\": \"Female\",\n            \"birth\": \"\",\n            \"death\": \"\",\n            \"realm\": \"Rohan\",\n            \"hair\": \"\",\n            \"name\": \"Morwen\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Morwen_(movie_character)\",\n            \"image\": null\n        },\n        {\n            \"_id\": 928,\n            \"height\": 230,\n            \"race\": \"Orc\",\n            \"spouse\": \"\",\n            \"gender\": null,\n            \"birth\": \"\",\n            \"death\": \"TA 3019\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"Gothmog\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Gothmog\",\n            \"image\": null\n        },\n        {\n            \"_id\": 927,\n            \"height\": 230,\n            \"race\": \"Human\",\n            \"spouse\": \"\",\n            \"gender\": \"Male\",\n            \"birth\": \"\",\n            \"death\": \"TA 3019\",\n            \"realm\": \"Gondor\",\n            \"hair\": \"\",\n            \"name\": \"Madril\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Madril\",\n            \"image\": null\n        },\n        {\n            \"_id\": 926,\n            \"height\": 230,\n            \"race\": \"Orc\",\n            \"spouse\": \"\",\n            \"gender\": \"Male\",\n            \"birth\": \"\",\n            \"death\": \"TA 3019\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"Sharku\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Sharku\",\n            \"image\": null\n        },\n        {\n            \"_id\": 925,\n            \"height\": 230,\n            \"race\": \"Human\",\n            \"spouse\": \"\",\n            \"gender\": \"Female\",\n            \"birth\": \"\",\n            \"death\": \"\",\n            \"realm\": \"\",\n            \"hair\": \"\",\n            \"name\": \"Freda\",\n            \"wikiUrl\": \"http://lotr.wikia.com//wiki/Freda\",\n            \"image\": null\n        },\n        {\n            \"_id\": 924,\n            \"height\": 230,\n            \"race\": \"NaN\",\n            \"spouse\": \"NaN\",\n            \"gender\": \"NaN\",\n            \"birth\": \"NaN\",\n            \"death\": \"NaN\",\n            \"realm\": \"NaN\",\n            \"hair\": \"NaN\",\n            \"name\": \"Aerandir\",\n            \"wikiUrl\": null,\n            \"image\": null\n        }\n    ],\n    \"page\": 1,\n    \"pages\": 94\n}"
+						}
+					]
+				},
+				{
+					"name": "Character",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/characters/:id",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{docker}}/characters/:id",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-PpV3lw3LL5RSio20EMKrCXGp6Gw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:27:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": {\n        \"_id\": 3,\n        \"height\": 230,\n        \"race\": \"Human\",\n        \"gender\": \"Male\",\n        \"birth\": \"TA 2917\",\n        \"spouse\": \"Unnamed wife\",\n        \"death\": \"TA 3010\",\n        \"realm\": \"\",\n        \"hair\": \"\",\n        \"name\": \"Adrahil II\",\n        \"wikiUrl\": \"http://lotr.wikia.com//wiki/Adrahil_II\",\n        \"imageId\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"height\": 230,\n  \"race\": \"Human\",\n  \"gender\": \"Male\",\n  \"birth\": \"Late ,Third Age\",\n  \"spouse\": \"\",\n  \"death\": \"\",\n  \"realm\": \"\",\n  \"hair\": \"\",\n  \"name\": \"Ceorl\",\n  \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker}}/characters",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"height\": 230,\n  \"race\": \"Human\",\n  \"gender\": \"Male\",\n  \"birth\": \"Late ,Third Age\",\n  \"spouse\": \"\",\n  \"death\": \"\",\n  \"realm\": \"\",\n  \"hair\": \"\",\n  \"name\": \"Ceorl\",\n  \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{docker}}/characters",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "210"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d2-Rdb1a5Va+GCSb3xUiJL4zqEvcwE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:27:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": {\n        \"_id\": 934,\n        \"height\": 230,\n        \"race\": \"Human\",\n        \"gender\": \"Male\",\n        \"birth\": \"Late ,Third Age\",\n        \"spouse\": \"\",\n        \"death\": \"\",\n        \"realm\": \"\",\n        \"hair\": \"\",\n        \"name\": \"Ceorl\",\n        \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\",\n        \"imageId\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"height\": 230,\n  \"race\": \"Human\",\n  \"gender\": \"Male\",\n  \"birth\": \"Late ,Third Age\",\n  \"spouse\": \"\",\n  \"death\": \"\",\n  \"realm\": \"\",\n  \"hair\": \"\",\n  \"name\": \"Ceorl\",\n  \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\",\n  \"imageId\": \"cd3ab1bc-67bc-4fd8-b10c-bdb895361491.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker}}/characters/:id",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "933"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"height\": 230,\n  \"race\": \"Human\",\n  \"gender\": \"Male\",\n  \"birth\": \"Late ,Third Age\",\n  \"spouse\": \"\",\n  \"death\": \"\",\n  \"realm\": \"\",\n  \"hair\": \"\",\n  \"name\": \"Ceorl\",\n  \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\",\n  \"imageId\": \"cd3ab1bc-67bc-4fd8-b10c-bdb895361491.jpg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{docker}}/characters/:id",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "933"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "248"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f8-n6d0fQQ5+LKBt4YCg1mV8W8aWrU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:27:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": {\n        \"_id\": 933,\n        \"height\": 230,\n        \"race\": \"Human\",\n        \"gender\": \"Male\",\n        \"birth\": \"Late ,Third Age\",\n        \"spouse\": \"\",\n        \"death\": \"\",\n        \"realm\": \"\",\n        \"hair\": \"\",\n        \"name\": \"Ceorl\",\n        \"wikiUrl\": \"http://lotr.wikia.com//wiki/Ceorl\",\n        \"imageId\": \"cd3ab1bc-67bc-4fd8-b10c-bdb895361491.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/characters/:id",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{docker}}/characters/:id",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:27:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "Get list of charater attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/characters/properties",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"characters",
+								"properties"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{docker}}/characters/properties",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"characters",
+										"properties"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-JupkzaymqQg0xp+CUlCMGlSGkBg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:28:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"_id\",\n        \"height\",\n        \"race\",\n        \"spouse\",\n        \"gender\",\n        \"birth\",\n        \"death\",\n        \"realm\",\n        \"hair\",\n        \"name\",\n        \"wikiUrl\"\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Add image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/solka/OneDrive/Documents/Programing/RSSchool/rss-app/public/64572.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{docker}}/media/images",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"media",
+								"images"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/solka/OneDrive/Documents/Programing/RSSchool/rss-app/public/64572.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{docker}}/media/images",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"media",
+										"images"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-lRT3EnQiHFnUk3KjTXX9knUoZ+Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:28:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"link\": \"http://192.168.31.68:3010/api/media/images/c59f448e-8ec8-4ce1-acdb-f6039eec4ade.png\",\n        \"filename\": \"c59f448e-8ec8-4ce1-acdb-f6039eec4ade.png\",\n        \"userId\": 7,\n        \"mediaType\": \"images\",\n        \"updatedAt\": \"2022-10-29T11:28:27.126Z\",\n        \"createdAt\": \"2022-10-29T11:28:27.126Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/media/images/:key",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"media",
+								"images",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "c59f448e-8ec8-4ce1-acdb-f6039eec4ade.png"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"sda\",\n    \"password\": \"123\",\n    \"signUpType\": \"native\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker}}/auth/signup",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"sda\",\n    \"password\": \"123\",\n    \"signUpType\": \"native\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{docker}}/auth/signup",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "172"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ac-yccrRZXuKcvuhjyrspdSijC4Dq8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:29:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxNX0sImlhdCI6MTY2NzA0Mjk3NiwiZXhwIjoxNjY3MTI5Mzc2fQ.FC8g6TKOrofQCexcGAX3bSNCzI8gEQr-Vs5W76SnBUU\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loginType\": \"native\",\r\n    \"email\": \"Rut\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker}}/auth/login",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"loginType\": \"native\",\r\n    \"email\": \"Rut\",\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{docker}}/auth/login",
+									"host": [
+										"{{docker}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-QklGtB2vwsif0WxnkHBaezV9jss\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Oct 2022 11:29:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1fSwiaWF0IjoxNjY3MDQyOTU3LCJleHAiOjE2NjcxMjkzNTd9.J-3R-TnCUNcrjSAfEqG3Fh9ex21JlZAlZpzAtygEd7A\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3fSwiaWF0IjoxNjY3MDQwOTU3LCJleHAiOjE2NjcxMjczNTd9.pea7YNS9mGCr-apbz-AEEiPa0UbtAxlSC29VgDC1XLU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://127.0.0.:3005",
+			"type": "string"
+		},
+		{
+			"key": "docker",
+			"value": "http://192.168.31.68:3010",
+			"type": "string"
+		}
+	]
+}
