@@ -12,12 +12,27 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <PrivateRoute element={PostPage} path="/posts"></PrivateRoute>
-                <PrivateRoute element={PostIdPage} path="/posts/:id"></PrivateRoute>
-                <Route path="/login" element={LogIn}></Route>
-                <Route path="/signup" element={SignUp}></Route>
-                <Route path="/404" element={Error404}></Route>
                 <Route path="/" element={<Navigate to={'/posts'}></Navigate>}></Route>
+                <Route path="/login" element={<LogIn></LogIn>}></Route>
+                <Route path="/signup" element={<SignUp></SignUp>}></Route>
+                <Route path="/404" element={<Error404></Error404>}></Route>
+                <Route
+                    path="/posts"
+                    element={
+                        <PrivateRoute>
+                            <PostPage></PostPage>
+                        </PrivateRoute>
+                    }
+                ></Route>
+                <Route
+                    path="/posts/:id"
+                    element={
+                        <PrivateRoute>
+                            <PostIdPage></PostIdPage>
+                        </PrivateRoute>
+                    }
+                ></Route>
+
                 <Route path="*" element={<Navigate to="/404"></Navigate>}></Route>
             </Routes>
         </BrowserRouter>
@@ -25,3 +40,15 @@ function App() {
 }
 
 export default App;
+
+{
+    /* <Routes>
+                <PrivateRoute element={PostPage} path="/posts"></PrivateRoute>
+                <PrivateRoute element={PostIdPage} path="/posts/:id"></PrivateRoute>
+                <Route path="/login" element={LogIn}></Route>
+                <Route path="/signup" element={SignUp}></Route>
+                <Route path="/404" element={Error404}></Route>
+                <Route path="/" element={<Navigate to={'/posts'}></Navigate>}></Route>
+                <Route path="*" element={<Navigate to="/404"></Navigate>}></Route>
+            </Routes> */
+}

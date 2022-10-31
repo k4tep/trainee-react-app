@@ -34,7 +34,9 @@ export function PostPage() {
             setError(data.error);
         } else {
             for (let index = 0; index < data.docs.length; index++) {
-                data.docs[index].img = randomImg();
+                if (!data.docs[index].image) {
+                    data.docs[index].image = { link: randomImg() };
+                }
             }
             setPosts(data.docs);
             setPages(pagesCount(data.pages));
@@ -147,7 +149,7 @@ export function PostPage() {
                                 <MyPost
                                     name={post.name}
                                     race={post.race}
-                                    img={post.img}
+                                    img={post.image ? post.image.link : null}
                                     key={post._id}
                                     id={post._id}
                                     onContextMenu={(event) => {
