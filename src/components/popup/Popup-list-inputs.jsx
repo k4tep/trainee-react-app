@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MyInput } from '../input/MyInput';
 import { MyButton } from '../button/MyButton';
 import classes from './PopUp.module.css';
 import { putCharacter } from '../../request/put-character';
 import { postCharacter } from '../../request/post-character';
+import { addImage } from '../../request/add-image';
 
 export function PopUpInputList({
     idInfo = {
@@ -16,6 +17,8 @@ export function PopUpInputList({
         death: '',
         realm: '',
         hair: '',
+        imageId: '',
+        image: '',
         name: '',
         wikiUrl: ''
     },
@@ -24,6 +27,7 @@ export function PopUpInputList({
     open,
     create = false
 }) {
+    const deleteFile = useRef();
     const [info, setNewInfo] = useState(idInfo);
     useEffect(() => setNewInfo(idInfo), [open]);
     const raceList = [
@@ -97,6 +101,24 @@ export function PopUpInputList({
                     </div>
                 ))}
             </div>
+            <div className={classes.imgDiv}>
+                <MyInput
+                    ref={deleteFile}
+                    type="file"
+                    accept="image/*,image/jpeg"
+                    onChange={async (e) => {
+                        const formData = new FormData();
+                        formData.append('image', e.target.files[0]);
+                        const data = await addImage(formData);
+                        setNewInfo({ ...info, imageId: data.data.filename, image: data.data });
+                    }}
+                />
+                <img
+                    className={info.imageId ? classes.img : classes.imgHide}
+                    src={info.imageId ? info.image.link : null}
+                ></img>
+            </div>
+
             <p>Realm</p>
             <MyInput
                 placeholder="Realm"
@@ -150,13 +172,13 @@ export function PopUpInputList({
             <MyButton
                 onClick={() => {
                     if (create) {
-                        console.log(info);
                         postCharacter(info);
                     } else {
                         putCharacter(info, info._id);
                         setUpdate(true);
                     }
                     setVisible(false);
+                    deleteFile.current.value = '';
                 }}
             >
                 Done

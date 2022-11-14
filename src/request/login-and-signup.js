@@ -5,7 +5,7 @@ export async function signUp(newInfo) {
     const authToken = `Bearer ${localStorage.getItem('token')}`;
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.31.68:3010/api/auth/signup', {
+    const response = await fetch('http://192.168.100.13:3010/api/auth/signup', {
         method: 'POST',
         headers,
         body: JSON.stringify(newInfo)
@@ -21,7 +21,7 @@ export async function logIn(newInfo) {
     const authToken = `Bearer ${localStorage.getItem('token')}`;
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.31.68:3010/api/auth/login', {
+    const response = await fetch('http://192.168.100.13:3010/api/auth/login', {
         method: 'POST',
         headers,
         body: JSON.stringify(newInfo)

@@ -10,7 +10,7 @@ export function CharacterInfo(props) {
                   gender: 'unknown',
                   race: 'unknown',
                   birth: 'unknown',
-                  img: 'https://cdn.theatlantic.com/media/mt/science/cat_caviar.jpg',
+                  image: { link: 'https://cdn.theatlantic.com/media/mt/science/cat_caviar.jpg' },
                   height: 'unknown',
                   hair: 'unknown',
                   spouse: 'none',
@@ -19,7 +19,7 @@ export function CharacterInfo(props) {
     return (
         <div className={classes.popup} onClick={(e) => e.stopPropagation()}>
             <div>
-                <img src={info.img} className={classes.img}></img>
+                <img src={info.image ? info.image.link : null} className={classes.img}></img>
             </div>
             <div>
                 <h1 className={classes.h1}>{info.name}</h1>

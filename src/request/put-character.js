@@ -5,7 +5,7 @@ export async function putCharacter(newInfo, id) {
     const authToken = `Bearer ${localStorage.getItem('token')}`;
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.31.68:3010/api/characters/' + id, {
+    const response = await fetch('http://192.168.100.13:3010/api/characters/' + id, {
         method: 'PUT',
         headers,
         body: JSON.stringify(newInfo)

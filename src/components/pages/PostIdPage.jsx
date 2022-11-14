@@ -20,6 +20,7 @@ export function PostIdPage() {
         spouse: '',
         death: '',
         realm: '',
+        image: null,
         hair: '',
         name: '',
         wikiUrl: ''
@@ -29,6 +30,7 @@ export function PostIdPage() {
     async function getInfoCharacter(id) {
         try {
             const data = await getCharacter(id);
+            console.log(data.docs);
             setInfo(data.docs);
         } catch (error) {
             console.log('ERROR');
@@ -63,6 +65,14 @@ export function PostIdPage() {
                 />
             </PopUp>
             <div className="App">
+                <img
+                    src={
+                        info.image
+                            ? info.image.link
+                            : 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png'
+                    }
+                    className="img"
+                ></img>
                 <h1>{info.name}</h1>
                 <hr></hr>
                 <h3>{info.race || 'unknown'}</h3>

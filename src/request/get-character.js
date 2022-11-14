@@ -23,7 +23,7 @@ export async function getCharacters(page, search, limit, sortMode = null, sortFi
         ...(sortField && { sortField })
     };
 
-    let queryPathBase = 'http://192.168.31.68:3010/api/characters';
+    let queryPathBase = 'http://192.168.100.13:3010/api/characters';
     const queryParamsKeys = Object.keys(queryParams);
     if (queryParamsKeys.length) {
         queryPathBase += '?';
@@ -48,7 +48,7 @@ export async function getCharacter(id) {
     headers.append('Allow-Origin', '*');
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.31.68:3010/api/characters/' + id, {
+    const response = await fetch('http://192.168.100.13:3010/api/characters/' + id, {
         method: 'GET',
         headers
     });

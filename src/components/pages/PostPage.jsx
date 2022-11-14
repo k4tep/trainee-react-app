@@ -35,7 +35,9 @@ export function PostPage() {
         } else {
             for (let index = 0; index < data.docs.length; index++) {
                 if (!data.docs[index].image) {
-                    data.docs[index].image = { link: randomImg() };
+                    data.docs[index].image = {
+                        link: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png'
+                    };
                 }
             }
             setPosts(data.docs);
@@ -55,6 +57,13 @@ export function PostPage() {
             }
         });
         setInfo(textInfo);
+    }
+    const body = document.getElementById('body');
+
+    if (modalAdd || modalInfo) {
+        body.classList.add('body');
+    } else {
+        body.classList.remove('body');
     }
 
     return (

@@ -6,7 +6,7 @@ export async function deleteCharacter(id) {
     headers.append('Allow-Origin', '*');
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.31.68:3010/api/characters/' + id, {
+    const response = await fetch('http://192.168.100.13:3010/api/characters/' + id, {
         method: 'DELETE',
         headers
     });
