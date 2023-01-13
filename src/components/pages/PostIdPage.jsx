@@ -1,44 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { getCharacter } from '../../request/get-character';
 import { PopUp } from '../popup/PopUp';
 import { PopUpInputList } from '../popup/Popup-list-inputs';
 import { MyButton } from '../button/MyButton';
-import { deleteCharacter } from '../../request/delete-character';
+// import { deleteCharacter } from '../../request/delete-character';
 import { useNavigate, useParams } from 'react-router-dom';
+import { fetchOneCharacter, removeCharacter } from '../../store/character-slice';
+import { useDispatch, useSelector } from 'react-redux';
 import '../../styles/App.css';
 
 export function PostIdPage() {
     const navigate = useNavigate();
     const params = useParams();
+    const info = useSelector((state) => state.character.info);
+    const dispatch = useDispatch();
     const [modal, setModalVisible] = useState(false);
-    const [info, setInfo] = useState({
-        _id: '',
-        height: '',
-        race: '',
-        gender: '',
-        birth: '',
-        spouse: '',
-        death: '',
-        realm: '',
-        image: null,
-        hair: '',
-        name: '',
-        wikiUrl: ''
-    });
     const [update, setUpdate] = useState(false);
 
-    async function getInfoCharacter(id) {
-        try {
-            const data = await getCharacter(id);
-            console.log(data.docs);
-            setInfo(data.docs);
-        } catch (error) {
-            console.log('ERROR');
-        }
-    }
+    // async function getInfoCharacter(id) {
+    //     try {
+    //         const data = await getCharacter(id);
+    //         console.log(data.docs);
+    //         setInfo(data.docs);
+    //     } catch (error) {
+    //         console.log('ERROR');
+    //     }
+    // }
 
     useEffect(() => {
-        getInfoCharacter(params.id);
+        dispatch(fetchOneCharacter(params.id));
         setUpdate(false);
     }, [update]);
 
@@ -97,7 +86,7 @@ export function PostIdPage() {
                 </MyButton>
                 <MyButton
                     onClick={() => {
-                        deleteCharacter(params.id);
+                        dispatch(removeCharacter(params.id));
                         deletedCharacter();
                     }}
                 >

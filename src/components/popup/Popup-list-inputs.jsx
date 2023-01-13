@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MyInput } from '../input/MyInput';
 import { MyButton } from '../button/MyButton';
+import { useDispatch } from 'react-redux';
 import classes from './PopUp.module.css';
-import { putCharacter } from '../../request/put-character';
-import { postCharacter } from '../../request/post-character';
+// import { putCharacter } from '../../request/put-character';
+import { addCharacter } from '../../store/characters-slice';
+import { updateCharacter } from '../../store/character-slice';
 import { addImage } from '../../request/add-image';
 
 export function PopUpInputList({
@@ -28,6 +30,7 @@ export function PopUpInputList({
     create = false
 }) {
     const deleteFile = useRef();
+    const dispatch = useDispatch();
     const [info, setNewInfo] = useState(idInfo);
     useEffect(() => setNewInfo(idInfo), [open]);
     const raceList = [
@@ -172,9 +175,9 @@ export function PopUpInputList({
             <MyButton
                 onClick={() => {
                     if (create) {
-                        postCharacter(info);
+                        dispatch(addCharacter(info));
                     } else {
-                        putCharacter(info, info._id);
+                        dispatch(updateCharacter({ info }));
                         setUpdate(true);
                     }
                     setVisible(false);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MyInput } from '../input/MyInput';
 import { MyButton } from '../button/MyButton';
@@ -6,52 +7,51 @@ import { MyPost } from '../card/MyPost';
 import { PopUp } from '../popup/PopUp';
 import { PopUpInputList } from '../popup/Popup-list-inputs';
 import { CharacterInfo } from '../popup/PopUpInfo';
-import { getCharacters } from '../../request/get-character';
-import { pagesCount } from '../page-count';
-import { randomImg } from '../card/random-img';
+import { fetchCharacter } from '../../store/characters-slice';
+import { removeUser } from '../../store/profile-slice';
 import '../../styles/App.css';
 
 export function PostPage() {
+    const postsList = useSelector((state) => state.characters.list);
+    const pages = useSelector((state) => state.characters.pages);
+    const { status, error } = useSelector((state) => state.characters);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const search = React.createRef();
-    const [sort, setSort] = useState();
-    const [error, setError] = useState('');
+    const [sortMode, setSort] = useState();
     const [field, setField] = useState();
-    const [posts, setPosts] = useState([]);
-    const [pages, setPages] = useState([]);
     const [limit, setLimit] = useState(50);
     const [page, setPage] = useState(1);
     const [info, setInfo] = useState({});
     const [regExp, setRegExp] = useState('');
-    const [loading, setLoading] = useState(false);
     const [modalInfo, setModalInfoVisible] = useState(false);
     const [modalAdd, setModalAddVisible] = useState(false);
 
-    async function getListCharacters(curPage, curRegExp, curLimit, curSort, curField) {
-        setLoading(true);
-        const data = await getCharacters(curPage, curRegExp, curLimit, curSort, curField);
-        if (data.error) {
-            setError(data.error);
-        } else {
-            for (let index = 0; index < data.docs.length; index++) {
-                if (!data.docs[index].image) {
-                    data.docs[index].image = {
-                        link: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png'
-                    };
-                }
-            }
-            setPosts(data.docs);
-            setPages(pagesCount(data.pages));
-            setLoading(false);
-        }
-    }
+    // async function getListCharacters(curPage, curRegExp, curLimit, curSort, curField) {
+    //     setLoading(true);
+    //     const data = await getCharacters(curPage, curRegExp, curLimit, curSort, curField);
+    //     if (data.error) {
+    //         setError(data.error);
+    //     } else {
+    //         for (let index = 0; index < data.docs.length; index++) {
+    //             if (!data.docs[index].image) {
+    //                 data.docs[index].image = {
+    //                     link: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png'
+    //                 };
+    //             }
+    //         }
+    //         setPosts(data.docs);
+    //         setPages(pagesCount(data.pages));
+    //         setLoading(false);
+    //     }
+    // }
 
     useEffect(() => {
-        getListCharacters(page, regExp, limit, sort, field);
-    }, [page, regExp, modalAdd, limit, sort, field]);
+        dispatch(fetchCharacter({ page, regExp, limit, sortMode, field }));
+    }, [page, regExp, limit, sortMode, field]);
 
     function getIndex(id) {
-        let textInfo = posts.find((post) => {
+        let textInfo = postsList.find((post) => {
             if (post._id === id) {
                 return post;
             }
@@ -67,7 +67,13 @@ export function PostPage() {
     }
 
     return (
-        <div className={posts === [] || error || loading ? 'container fullscreen' : 'container'}>
+        <div
+            className={
+                postsList === [] || error || status === 'loading'
+                    ? 'container fullscreen'
+                    : 'container'
+            }
+        >
             <PopUp visible={modalAdd} setVisible={setModalAddVisible}>
                 <PopUpInputList open={modalAdd} create={true} setVisible={setModalAddVisible} />
             </PopUp>
@@ -140,7 +146,8 @@ export function PostPage() {
                     <MyButton
                         onClick={(e) => {
                             e.stopPropagation();
-                            localStorage.removeItem('token');
+                            dispatch(removeUser());
+                            // localStorage.setItem('token', '');
                             navigate('/login');
                         }}
                     >
@@ -149,12 +156,12 @@ export function PostPage() {
                 </div>
                 {error ? (
                     <h1 className="h1">Error: {error}</h1>
-                ) : loading ? (
+                ) : status === 'loading' ? (
                     <h1 className="h1">Loading...</h1>
-                ) : posts != [] ? (
+                ) : postsList != [] ? (
                     <div>
                         <div>
-                            {posts.map((post) => (
+                            {postsList.map((post) => (
                                 <MyPost
                                     name={post.name}
                                     race={post.race}

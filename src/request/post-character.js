@@ -6,11 +6,10 @@ export async function postCharacter(newInfo) {
     const authToken = `Bearer ${localStorage.getItem('token')}`;
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.100.13:3010/api/characters', {
+    const response = await fetch(process.env.REACT_APP_URL_API + '/characters', {
         method: 'POST',
         headers,
         body: JSON.stringify(newInfo)
     });
-    const data = await response.json();
-    return data;
+    return response;
 }

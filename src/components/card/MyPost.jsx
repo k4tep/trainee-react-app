@@ -1,11 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import classes from './MyPost.module.css';
 import { MyButton } from '../button/MyButton';
-import { deleteCharacter } from '../../request/delete-character';
+import { removeCharacter } from '../../store/characters-slice';
 import { useNavigate } from 'react-router-dom';
 
 export function MyPost(props) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function moreInfo(id) {
         navigate(`/posts/${id}`);
@@ -31,7 +33,7 @@ export function MyPost(props) {
                 <MyButton
                     onClick={(e) => {
                         e.stopPropagation();
-                        deleteCharacter(props.id);
+                        dispatch(removeCharacter(props.id));
                     }}
                 >
                     Delete

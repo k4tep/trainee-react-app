@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EnterProfile } from '../LogSignForm';
-import { logIn } from '../../request/login-and-signup';
+import { reduxLogIn } from '../../store/profile-slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function LogIn() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.profile.token);
+    const error = useSelector((state) => state.profile.error);
 
-    async function log(info) {
-        const data = await logIn({ ...info, loginType: 'native' });
-        if (data.error) {
-            alert(data.error);
-        } else {
-            localStorage.setItem('token', data.data.token);
-            navigate('/posts');
-        }
+    function log(info) {
+        dispatch(reduxLogIn({ ...info, loginType: 'native' }));
     }
+
+    useEffect(() => {
+        if (token) {
+            navigate('/posts');
+        } else if (error) {
+            alert(error);
+        }
+    }, [error, token]);
 
     return <EnterProfile enter={log}></EnterProfile>;
 }

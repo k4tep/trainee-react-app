@@ -23,7 +23,7 @@ export async function getCharacters(page, search, limit, sortMode = null, sortFi
         ...(sortField && { sortField })
     };
 
-    let queryPathBase = 'http://192.168.100.13:3010/api/characters';
+    let queryPathBase = process.env.REACT_APP_URL_API + '/characters';
     const queryParamsKeys = Object.keys(queryParams);
     if (queryParamsKeys.length) {
         queryPathBase += '?';
@@ -31,13 +31,11 @@ export async function getCharacters(page, search, limit, sortMode = null, sortFi
             queryPathBase += `${key}=${queryParams[key]}&`;
         });
     }
-    console.log(queryPathBase);
     const response = await fetch(queryPathBase, {
         method: 'GET',
         headers
     });
-    const data = await response.json();
-    return data;
+    return response;
 }
 
 export async function getCharacter(id) {
@@ -48,10 +46,9 @@ export async function getCharacter(id) {
     headers.append('Allow-Origin', '*');
     headers.append('Authorization', authToken);
 
-    const response = await fetch('http://192.168.100.13:3010/api/characters/' + id, {
+    const response = await fetch(process.env.REACT_APP_URL_API + '/characters/' + id, {
         method: 'GET',
         headers
     });
-    const data = await response.json();
-    return data;
+    return response;
 }
